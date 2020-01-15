@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- view -->
+    <div id="app">
+        <input type="text" v-model="message">
+        <!-- 插值 -->
+        <!-- 绑定文本 -->
+        <p class="holle">{{message}}</p>
+        <h1 v-if="false" v-once>{{message}}</h1>
+        <h2 v-text="message"></h2>
+        <!-- 模版标签 -->
+        <div :class="className" v-html="htmlStr"></div>
+        <template v-html="htmlStr"></template>
+        <p>{{num+10}}</p>
+
+        <p v-if="isLogin">welcome {{username}}</p>
+        <p v-else>您当前为登录</p>
+        <!-- 登录时咧 -->
+        <input type="text" placeholder="zhanghao" v-model="username">
+        <br />
+        <input type="password" placeholder="mima" v-model="password">
+        <br />
+        <button type="button" @click="loginin">denglu</button>
+        <br />
+
+        <template v-if="isTel">
+            <span>手机：</span>
+            <input type="tel" placeholder="请输入手机号" key="a">
+        </template>
+        <template v-else>
+            <span>邮箱：</span>
+            <input type="email" placeholder="请输入邮箱" key="b">
+        </template>
+        <h1 v-show="isTel">Hello!</h1>
+        <button type="button" @click="isTel = !isTel">切换登陆方式</button>
+        <ul class="list">
+            <li v-for="(item,index) in goods" :key="index">
+                {{item.name}} - ¥{{item.price}}
+            </li>
+        </ul>
+        <!-- 数据锅炉 -->
+        <input type="text" placeholder="搜索内容" @input="filterName" v-model="keywords">
+        <!-- 显示过滤结果 -->
+        <ul class="list-res">
+            <li v-for="(city,index) in res" :key="index">
+                {{city}}
+            </li>
+        </ul>
+        <!-- 在双花括号中 -->
+        <p>{{num|formRMB}}</p>
+        <!-- 单选菜单列表 -->
+        <ul class="lists">
+            <li v-for="(item,index) in menus" :key="index" :class="index==selIndex? 'sel' : '' "
+                @click="selIndex=index">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <script src="./lib/vue.js">
+    </script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
