@@ -1,0 +1,23 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.lists>li {
+    display: inline-block;
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    background: purple;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.lists>li:hover {
+    background: pink;
+}
+
+.lists>li.sel {
+    background: orange;
+}

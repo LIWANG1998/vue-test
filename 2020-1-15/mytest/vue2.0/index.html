@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="app">
+        <input type="text" placeholder="firstname" v-model="firname">
+        <br />
+        <input type="text" v-focus placeholder="lastname" v-model="lasname">
+        <p>{{fullname}}</p>
+
+        <input type="text" placeholder="shuruneirong" v-model="message">
+        <p v-color="'red'" class="reverseMsg">{{reverseMsg}}</p>
+        <p v-color="'blue'" class="reverseM">{{reverseM()}}</p>
+        <p>{{res}}</p>
+
+        <div :class="{box:true,aqusre:false}"></div>
+        <div :class="['a','b']"></div>
+        <div :class="'hha ' + classname"></div>
+        <div :class="classname=='ggg'?'x':'y'"></div>
+        <h1 :style="{color:'red',background}">环球中心</h1>
+
+        <input type="numder" v-model.number="a">+
+        <input type="numder" v-model.number="b">=
+        <span>{{a+b}}</span>
+
+    </div>
+    <script src="./lib/vue.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
