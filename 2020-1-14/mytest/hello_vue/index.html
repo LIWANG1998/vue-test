@@ -22,7 +22,7 @@
         <div :class="className" v-html="htmlStr"></div>
         <template v-html="htmlStr"></template>
         <p>{{num+10}}</p>
-
+        <p v-if="isLogin">{{menus.json("")}}</p>
         <p v-if="isLogin">welcome {{username}}</p>
         <p v-else>您当前为登录</p>
         <!-- 登录时咧 -->

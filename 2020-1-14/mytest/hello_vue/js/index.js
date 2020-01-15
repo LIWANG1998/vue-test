@@ -3,6 +3,10 @@
 //     message: "Hsolle,vue.js"
 // }
 //viewModel
+
+
+
+let vmtwo;
 let vm = new Vue({
     // 元素的挂载
     el: "#app",
@@ -38,6 +42,10 @@ let vm = new Vue({
 
         selIndex: 0,//选中的下标
         menus: ["主页", "新闻", "社会", "科技", "娱乐"]
+    },
+    // 在生命周期 beforeCreate里面改变this指向
+    beforeCreate() {
+        vmtwo = this;
     },
     //生命周期方法
     mounted() {
@@ -96,10 +104,10 @@ let vm = new Vue({
     filters: {
         //加工人名币符号
         formRMB(price) {
-            console.log(this.num)
+            console.log(vmtwo.num)
             console.log(price)
             //$ 10
-            return `$ ${price}`;
+            return `$ ${price + vmtwo.num}`;
         }
     }
 })
