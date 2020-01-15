@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>hello - webpack</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+
+		<!-- View -->
+		<div id="app">
+			<input v-model="message" />
+			<!-- 插值 -->
+			<!-- 绑定文本 -->
+			<h1 class="hello">{{message}}</h1>
+			<h1 v-show="false" v-once>{{message}}</h1>
+			<h1 v-text="message"></h1>
+			<!-- 绑定html -->
+			<div :class="className" v-html="htmlStr"></div>
+			<p>{{num + 10}}</p>
+			<!-- 登陆示例 -->
+			<p v-if="isLogin">welcome {{username}}</p>
+			<p v-else>您当前未登陆！</p>
+
+			<input type="text" placeholder="账号" v-model="username">
+			<br />
+			<input type="password" placeholder="密码" v-model="password">
+			<br />
+			<button type="button" @click="login">登陆</button>
+			<br />
+
+			<template v-if="isTel">
+				<span>手机：</span>
+				<input type="tel" placeholder="请输入手机号" key="a">
+			</template>
+			<template v-else>
+				<span>邮箱：</span>
+				<input type="email" placeholder="请输入邮箱" key="b">
+			</template>
+			<button type="button" @click="isTel = !isTel">切换登陆方式</button>
+			
+			<ul class="list-g">
+				<li v-for="(item, index) in goods" :key="index">
+					{{item.name}} - ¥{{item.price}}
+				</li>
+			</ul>
+			
+			<!-- 数据过滤 --> 
+			<input type="text" @input="filterName" placeholder="搜索内容" v-model="keywords"/>
+			<!-- 显示过滤结果 -->
+			<ul class="res-list">
+				<li v-for="(item, index) in res" :key="index">
+					{{item}}
+				</li>
+			</ul>
+			
+			<p>{{num | formRMB}}</p>
+			
+			<!-- 单选菜单列表实现 -->
+			<ul class="list">
+				<li 
+				v-for="(menu, index) in menus" 
+				:key="index" 
+				:class="index == selIndex ? 'sel' : ''"
+				@click="selIndex = index">
+					{{menu}}
+				</li>
+			</ul>
+		</div>
+
+		<script src="lib/vue.js"></script>
+		<script src="js/index.js"></script>
+	</body>
+</html>
