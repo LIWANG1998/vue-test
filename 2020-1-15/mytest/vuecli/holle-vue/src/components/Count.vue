@@ -1,16 +1,24 @@
-<template lang="pug">
-  <div>{{name}}</div>
+<template>
+    <div class="hw">
+      {{ name }}
+    </div>
 </template>
+ 
+<!--JS区域-->
 <script>
-export default {
-  name: "HelloWor",
-  // 全局组件里data属性必须是函数，这样才会独立，
-  // 在组件改变状态的时候不会影响其他组件里公用的这个状态
-  data() {
-    return {
-      name: "我是全局组件"
-    };
-  }
-};
+    export default {
+        name: "hw",
+      data(){
+          return {
+            name:"毛没齐"
+        }
+      }
+    }
 </script>
-<style lang="stylus" scoped></style>
+ 
+<!--css区域-->
+<style scoped>
+.hw{
+  color: blue;
+}
+</style>

@@ -5,7 +5,12 @@
 //viewModel
 
 
-
+Vue.component("component-a", {
+    data() { 
+      return { count: 0 }
+    },
+    template: `<button @click="count++">You clicked me {{ count }} times.</button>`
+  });
 let vmtwo;
 let vm = new Vue({
     // 元素的挂载

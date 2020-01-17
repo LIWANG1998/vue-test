@@ -1,6 +1,7 @@
 <template>
   <!-- template 中只能存在一个根标签 -->
   <div id="app">
+    <app-head></app-head>
     <component-a></component-a>
     <img alt="Vue logo" src="./assets/logo.png" />
     <p>{{message}}</p>
