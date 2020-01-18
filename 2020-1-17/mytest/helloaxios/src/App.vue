@@ -4,7 +4,7 @@
     <header>
       <ul class="list">
         <li>
-          <router-link to="/">主页</router-link>
+          <router-link exact :to="{name:'home'}">主页</router-link>
         </li>
         <li>
           <router-link to="/news">新闻</router-link>
@@ -68,7 +68,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -94,5 +94,8 @@ a {
 }
 main {
   height: calc(100%-64px);
+}
+a.router-link-active {
+  color: rgb(195, 255, 0);
 }
 </style>
