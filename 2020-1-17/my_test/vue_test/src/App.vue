@@ -3,12 +3,12 @@
     <el-container>
       <el-header>
         <el-row type="flex" class="row-bg" justify="space-around">
-          <el-col :span="6">
+          <el-col :span="6" v-for="(item, index) in routes" :key="index">
             <div class="grid-content bg-purple">
-              <router-link to="/">主页</router-link>
+              <router-link :to="item.path">{{item.text}}</router-link>
             </div>
           </el-col>
-          <el-col :span="6">
+          <!-- <el-col :span="6">
             <div class="grid-content bg-purple-light">
               <router-link to="/login">login</router-link>
             </div>
@@ -17,11 +17,13 @@
             <div class="grid-content bg-purple">
               <router-link to="/login">logins</router-link>
             </div>
-          </el-col>
+          </el-col>-->
         </el-row>
       </el-header>
       <el-main>
-        <router-view></router-view>
+        <transition enter-active-class="animated flip" leave-active-class="animated jackInTheBox">
+          <router-view></router-view>
+        </transition>
       </el-main>
       <el-footer>Footer</el-footer>
     </el-container>
@@ -29,8 +31,27 @@
 </template>
 
 <script>
+import "animate.css";
 export default {
   name: "app",
+  data() {
+    return {
+      routes: [
+        {
+          path: "/",
+          text: "主页"
+        },
+        {
+          path: "/login",
+          text: "登录"
+        },
+        {
+          path: "/goodsd/2",
+          text: "商品"
+        }
+      ]
+    };
+  },
   components: {}
 };
 </script>
